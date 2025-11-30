@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>@anammmz</title>
     <!-- UNICONS -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <!-- CSS -->
@@ -267,5 +267,33 @@
 
     <!-- ----- MAIN JS ----- -->
     <script src="script.js"></script>
+
+<!-- AUDIO -->
+<audio id="bgm" src="music.mp3" autoplay loop></audio>
+
+<audio id="bgm" src="music.mp3" muted loop></audio>
+
+<script>
+document.body.addEventListener("click", function () {
+    const audio = document.getElementById("bgm");
+
+    audio.muted = false;
+    audio.volume = 0;
+
+    audio.play().then(() => {
+        let volumeNow = 0;
+        const fadeIn = setInterval(() => {
+            if (volumeNow < 1) {
+                volumeNow += 0.02;
+                audio.volume = volumeNow;
+            } else {
+                clearInterval(fadeIn);
+            }
+        }, 200);
+    });
+
+}, { once: true });
+</script>
+
 </body>
 </html>
